@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-svg-sprites": "^4.0.2"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,11 @@
+<svg id="Plus-icon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <style>
+      .cls-5 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect id="_2" data-name="2" class="cls-5" y="4" width="10" height="2" rx="1" ry="1"/>
+  <rect id="_1" data-name="1" class="cls-5" x="4" width="2" height="10" rx="1" ry="1"/>
+</svg>

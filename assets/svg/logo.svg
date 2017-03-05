@@ -1,0 +1,36 @@
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="121.5" height="34.875" viewBox="0 0 121.5 34.875">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #dbeff9;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #57778e;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #a5c4d9;
+      }
+
+      .cls-3 {
+        font-size: 38px;
+        fill: #57778e;
+        font-family: "Open Sans";
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+  <g id="Sign">
+    <path id="_2" data-name="2" class="cls-1" d="M118.167,45.951l9.146-14.867,9.147,14.867H118.167Z" transform="translate(-28 -12.563)"/>
+    <path id="_1" data-name="1" class="cls-2" d="M121.014,14.047l18,30.487,9-15.244-9-15.243h-18Z" transform="translate(-28 -12.563)"/>
+  </g>
+  <text id="T" class="cls-3" transform="translate(65.48 29.748) scale(0.908 0.908)">T</text>
+  <text id="S" class="cls-3" transform="translate(42.975 29.748) scale(0.908 0.908)">S</text>
+  <text id="E" class="cls-3" transform="translate(21.747 29.748) scale(0.908 0.908)">E</text>
+  <text id="T-2" data-name="T" class="cls-3" transform="translate(0.334 29.748) scale(0.908 0.908)">T</text>
+</svg>

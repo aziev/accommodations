@@ -1,0 +1,151 @@
+@import '_normalize';
+@import '_sprite';
+@import '_helpers';
+
+/*
+ * Variables
+ */
+
+$c_primary: #57778e;
+$c_secondary: #f3781e;
+$c_border: #e1e6e8;
+
+$f_primary: 'Open Sans', sans-serif;
+
+
+/*
+ * Styles
+ */
+
+body{
+    font-family: $f_primary;
+}
+
+header{
+    height: 60px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    .btn{
+        margin-top: 12px;
+    }
+}
+
+.btn{
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 25px;
+    background: $c_secondary;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 30px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 25px;
+}
+
+.pull-right{
+    float: right;
+}
+
+.logo{
+    display: inline-block;
+    margin: 12px 30px 0 30px;
+}
+
+.content{
+    display: table;
+    width: 100%;
+}
+
+.text-primary{
+    color: $c_primary;
+    font-weight: 600;
+}
+
+.section{
+    display: table-cell;
+    width: 50%;
+    vertical-align: top;
+}
+
+.filters{
+    font-size: 13px;
+    padding: 30px 30px 30px 196px;
+    .plus{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $c_primary;
+        position: relative;
+        top: 4px;
+        border-radius: 10px;
+        margin-right: 8px;
+        .icon{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.search-label{
+    display: block;
+    position: relative;
+    border: 1px solid $c_border;
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    .icon{
+        position: absolute;
+        left: 14px;
+        bottom: 18px;
+    }
+    .tag{
+        display: inline-block;
+        margin: 4px 10px 0 0;
+        border: 1px solid #e1e6e8;
+        height: 25px;
+        line-height: 25px;
+        padding: 0 10px;
+    }
+}
+
+.search{
+    width: 100%;
+    margin: 10px 0;
+    box-sizing: border-box;
+    height: 35px;
+    padding-left: 45px;
+    border: none;
+}
+
+.filters-group{
+    padding: 25px 0;
+    .title{
+        @extend .text-primary;
+        @extend .noselect;
+        margin: 0 0 20px;
+    }
+    .filter-items{
+        font-size: 0;
+    }
+    label{
+        display: inline-block;
+        width: 33%;
+        font-size: 13px;
+        span{
+            display: inline-block;
+            @extend .noselect;
+        }
+    }
+    .expand{
+        cursor: pointer;
+    }
+    &:not(:last-of-type){
+        border-bottom: 1px solid #eff3f5;
+    }
+}
+
+.accomodations{
+    
+}

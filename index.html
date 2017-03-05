@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
+	<title>Test</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="icon" href="img/favicon.ico">
+</head>
+<body>
+	<header>
+        <a href="" class="logo">
+            <i class="icon icon-logo"></i>
+        </a>
+        <a href="" class="btn pull-right">List your property</a>   
+    </header>
+    <div class="content" id="app">
+        <div class="section filters">
+            <span class="text-primary">Amenities search</span>
+            <label class="search-label">
+                <div class="tags">
+                    <p class="tag" v-for="tag in tags">{{ tag }}</p>
+                </div>
+                <input type="text" class="search" placeholder="enter the names of amenities that you need in apartment">
+                <i class="icon icon-magnifier"></i>
+            </label>
+            <div class="filters-group">
+                <p class="title expand" v-on:click="toggleExpandState('expandPopularAmenities')">
+                    <span v-bind:class="['plus', {minus: expandPopularAmenities}]">
+                        <i class="icon icon-plus"></i>
+                    </span>
+                    Popular amenities
+                </p>
+                <div class="filter-items">
+                    <filter-component v-for="filter in filters.amenities.primary" :key="filter" :title="filter">{{ filter }}</filter-component>
+                </div>
+                <div class="filter-items" v-show="expandPopularAmenities">
+                    <filter-component v-for="filter in filters.amenities.secondary" :key="filter" :title="filter">{{ filter }}</filter-component>
+                </div>
+            </div>
+            <div class="filters-group">
+                <p class="title">Apartment</p>
+                <div class="filter-items">
+                    <filter-component v-for="filter in filters.apartment.primary" :key="filter" :title="filter">{{ filter }}</filter-component>
+                </div>
+            </div>
+            <div class="filters-group">
+                <p class="title expand" v-on:click="toggleExpandState('expandKitchen')">
+                    <span v-bind:class="['plus', {minus: expandKitchen}]">
+                        <i class="icon icon-plus"></i>
+                    </span>
+                    Kitchen
+                </p>
+                <div class="filter-items">
+                    <filter-component v-for="filter in filters.kitchen.primary" :key="filter" :title="filter">{{ filter }}</filter-component>
+                </div>
+                <div class="filter-items" v-show="expandKitchen">
+                    <filter-component v-for="filter in filters.kitchen.secondary" :key="filter" :title="filter">{{ filter }}</filter-component>
+                </div>
+            </div>
+        </div>
+        <div class="section accomodations">
+            {{ message }}
+        </div>
+    </div>
+
+    <template id="filter">
+        <label>
+            <input type="checkbox" v-model="$root.tags" :value="title">
+            <span>
+                <slot>Без названия</slot>
+            </span>
+        </label>
+    </template>
+
+    <script src="https://unpkg.com/vue"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
