@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Test</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 	<link rel="stylesheet" href="css/app.css">
@@ -17,18 +17,31 @@
     </header>
     <div class="content" id="app">
         <div class="section filters">
+            <span class="text-primary amenities-toggler">
+                <i class="icon icon-minus"></i>
+                Amenities
+            </span>
             <span class="text-primary">Amenities search</span>
             <label class="search-label">
-                <div class="tags">
-                    <p class="tag" v-for="tag in tags">{{ tag }}</p>
+                <div class="tags" :style="'min-width: ' + tagsWidth + 'px;'">
+                    <template v-for="tag in tags">
+                        <p class="tag">
+                            {{ tag }}
+                            <i class="icon icon-close" v-on:click="removeTag(tag)"></i>
+                        </p>{{ ' ' }}
+                    </template>
                 </div>
-                <input type="text" class="search" placeholder="enter the names of amenities that you need in apartment">
+                <div class="input">
+                    <input type="text" class="search" v-model="search"
+                        :placeholder="tags.length ? '' : 'enter the names of amenities that you need in apartment'">
+                </div>
                 <i class="icon icon-magnifier"></i>
             </label>
             <div class="filters-group">
                 <p class="title expand" v-on:click="toggleExpandState('expandPopularAmenities')">
                     <span v-bind:class="['plus', {minus: expandPopularAmenities}]">
                         <i class="icon icon-plus"></i>
+                        <i class="icon icon-minus"></i>
                     </span>
                     Popular amenities
                 </p>
@@ -49,6 +62,7 @@
                 <p class="title expand" v-on:click="toggleExpandState('expandKitchen')">
                     <span v-bind:class="['plus', {minus: expandKitchen}]">
                         <i class="icon icon-plus"></i>
+                        <i class="icon icon-minus"></i>
                     </span>
                     Kitchen
                 </p>
@@ -61,20 +75,56 @@
             </div>
         </div>
         <div class="section accomodations">
-            {{ message }}
+            <div class="tab-btns">
+                <button v-on:click="setTab('tab-map')" v-bind:class="{active: currentTab == 'tab-map'}">Map</button>
+                <button v-on:click="setTab('tab-accomodation')" v-bind:class="{active: currentTab == 'tab-accomodation'}">Accomodations</button>
+            </div>
+            <div class="info-row">
+                <div class="offers-count">{{ filteredItems().length }} offers</div>
+                <div class="tags">
+                    <template v-for="tag in tags">
+                        <div class="tag">
+                            {{ tag }}
+                            <i class="icon icon-close" v-on:click="removeTag(tag)"></i>
+                        </div>{{ ' ' }}
+                    </template>
+                </div>
+            </div>
+            <component :is="currentTab" :tags="tags"></component>
         </div>
     </div>
 
     <template id="filter">
-        <label>
+        <label class="checkbox-label">
             <input type="checkbox" v-model="$root.tags" :value="title">
+            <div class="check">
+                <i class="non-checked"></i>
+                <p class="checked">
+                    <i class="icon icon-check"></i>
+                </p>
+            </div>
             <span>
                 <slot>Без названия</slot>
             </span>
         </label>
     </template>
 
+    <template id="tab-map">
+        <div class="tab" id="map"></div>
+    </template>
+
+    <template id="tab-accomodation">
+        <div class="tab items">
+            <div class="item" v-for="item in $root.filteredItems()">
+                <img v-bind:src="'img/items/' + item.image" alt="">
+                <p class="desc">{{ item.desc }}<span class="price">{{ item.price }}</span></p>
+            </div>
+        </div>
+    </template>
+
     <script src="https://unpkg.com/vue"></script>
 	<script src="js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXPuloSl9iZCtSivWIB3zPToziIw_A2Xs&allback=initMap"
+        async defer></script>
 </body>
 </html>

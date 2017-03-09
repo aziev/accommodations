@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../img/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 12.15em 6.3em;
+    background-size: 12.15em 10.2em;
 }
 
 .no-svg .icon:before {
@@ -17,8 +17,26 @@
 
 
 
-  .icon.icon-logo:before {
+  .icon.icon-check:before {
       background-position: 0em 0em;
+      width: 1.1968999999999999em;
+      height: 0.9031em;
+  }
+
+
+
+
+  .icon.icon-close:before {
+      background-position: 0em -1em;
+      width: 1.0344em;
+      height: 1.0718999999999999em;
+  }
+
+
+
+
+  .icon.icon-logo:before {
+      background-position: 0em -2.1em;
       width: 12.15em;
       height: 3.4875em;
   }
@@ -27,7 +45,7 @@
 
 
   .icon.icon-magnifier:before {
-      background-position: 0em -3.5em;
+      background-position: 0em -5.6em;
       width: 1.7em;
       height: 1.7030999999999998em;
   }
@@ -35,8 +53,17 @@
 
 
 
+  .icon.icon-minus:before {
+      background-position: 0em -7.4em;
+      width: 1.8em;
+      height: 1.8em;
+  }
+
+
+
+
   .icon.icon-plus:before {
-      background-position: 0em -5.3em;
+      background-position: 0em -9.2em;
       width: 1em;
       height: 1em;
   }
